@@ -19,3 +19,12 @@ Neste projeto foi utilizado uma aplicação Laravel 10 com PHP 8.2, utilizando p
 -   tests/Feature/Api/PersonControllerTest.php
 -   tests/Feature/Api/PersonCountControllerTest.php
 -   tests/Feature/Api/PersonSearchControllerTest.php
+
+# Instalação
+- git clone https://github.com/username/projeto.git
+- cd projeto
+- composer install
+- cp .env.example .env
+- alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+- php artisan key:generate
+- sail up -d
