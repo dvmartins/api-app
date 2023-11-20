@@ -7,8 +7,9 @@ jobs:
     container:
       image: kirschbaumdevelopment/laravel-test-runner:8.1
     steps:
-       - name: Checkout code
-         uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+         with:
+            fetch-depth: 1
 
       - name: Prepare Laravel App
         run: cp .env.desafio .env
