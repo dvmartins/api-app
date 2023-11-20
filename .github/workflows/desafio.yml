@@ -8,14 +8,16 @@ jobs:
       image: kirschbaumdevelopment/laravel-test-runner:8.1
     steps:
       - uses: actions/checkout@v2
-         with:
-            fetch-depth: 1
+        with:
+          fetch-depth: 1
 
       - name: Prepare Laravel App
         run: cp .env.desafio .env
 
-      - name: Install Dependencies
+      - name: Composer Install
         run: composer install --no-progress --prefer-dist --optimize-autoloader
 
       - name: Generate Key
         run: php artisan key:generate
+
+
