@@ -1,13 +1,13 @@
 name: Desafio
 
-on:
+on: push
 jobs:
  build:
     runs-on: ubuntu-latest
     container:
       image: kirschbaumdevelopment/laravel-test-runner:8.1
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 1
 
@@ -16,5 +16,5 @@ jobs:
 
       - name: Composer Install
         run:
-          composer install --no-install --prefer-dist --optimize-autoloader
+          composer install --no-progress --prefer-dist --optimize-autoloader
           php artisan key:generate
