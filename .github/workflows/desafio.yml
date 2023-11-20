@@ -6,6 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: kirschbaumdevelopment/laravel-test-runner:8.1
+    services:
+      mysql:
+        image: mysql
+        env:
+          MYSQL_USERNAME: sail
+          MYSQL_PASSWORD: password
+          MYSQL_DB: desafio_api
+        ports:
+          - 3306:3306
+
     steps:
       - uses: actions/checkout@v2
         with:
@@ -19,5 +29,18 @@ jobs:
 
       - name: Generate Key
         run: php artisan key:generate
+
+      - name: Migrations
+        run: php artisan migrate
+
+      - name: Install NPM Packages
+        run: |
+          npm install
+          npm run production
+
+      - name: Run tests
+        run: php artisan test
+
+
 
 
