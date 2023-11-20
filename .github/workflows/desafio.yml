@@ -1,0 +1,20 @@
+name: Desafio
+
+on:
+jobs:
+ build:
+    runs-on: ubuntu-latest
+    container:
+      image: kirschbaumdevelopment/laravel-test-runner:8.1
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: Prepare Laravel App
+        run: cp .env.desafio .env
+
+      - name: Composer Install
+        run:
+          composer install --no-install --prefer-dist --optimize-autoloader
+          php artisan key:generate
