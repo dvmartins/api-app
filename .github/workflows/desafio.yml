@@ -17,4 +17,4 @@ jobs:
       - name: Composer Install
         run:
           composer install --no-progress --prefer-dist --optimize-autoloader
-          php artisan key:generate
+          composer require php artisan key:generate"
