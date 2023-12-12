@@ -23,8 +23,8 @@ Neste projeto foi utilizado uma aplicação Laravel 10 com PHP 8.2, utilizando p
 # Instalação
 - git clone https://github.com/username/projeto.git
 - cd projeto
-- composer install
 - cp .env.example .env
+- composer install
 - alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
-- php artisan key:generate
+- sail artisan key:generate
 - sail up -d
